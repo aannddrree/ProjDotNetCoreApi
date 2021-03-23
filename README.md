@@ -51,7 +51,7 @@ Web Config                                    webconfig                        C
 Solution File                                 sln                              Solution
 Protocol Buffer File                          proto                            Web/gRPC
 
-4 - Em nosso primeiro projeto criamo um projeto console application:
+4 - Em nosso primeiro projeto criamo um projeto ASP.NET Core Web API:
 
 dotnet new webapi
 --------------------------------------------  -------------------  ----------  ----------------------
