@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using ProjDotNetCoreApi.Dal;
 
 namespace ProjDotNetCoreApi
 {
@@ -26,12 +28,16 @@ namespace ProjDotNetCoreApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProjDotNetCoreApi", Version = "v1" });
             });
+
+            
+            services.AddDbContext<PetContext>(options =>
+                options.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=dbdognew;Integrated Security=True;"));
+                
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

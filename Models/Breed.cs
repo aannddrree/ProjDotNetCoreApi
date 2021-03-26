@@ -1,12 +1,12 @@
 namespace ProjDotNetCoreApi.Models
 {
-    public abstract class Pet
+    public class Breed
     {
         #region Propriedades
-
+        
             public int Id { get; set; }
-            public string Nome { get; set; }
+            public string Description { get; set; }
 
-        #endregion 
+        #endregion
     }
 }
