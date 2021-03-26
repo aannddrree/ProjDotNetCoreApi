@@ -33,7 +33,7 @@ namespace ProjDotNetCoreApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Dog>> GetDog(int id)
         {
-            var dog = await _context.Dogs.FindAsync(id);
+            var dog = await _context.Dogs.Include(b => b.Breed).FirstOrDefaultAsync(d => d.Id == id);
 
             if (dog == null)
             {
