@@ -34,10 +34,8 @@ namespace ProjDotNetCoreApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProjDotNetCoreApi", Version = "v1" });
             });
 
-            
             services.AddDbContext<PetContext>(options =>
-                options.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=dbdognew;Integrated Security=True;"));
-                
+                options.UseSqlServer(Configuration.GetConnectionString("SqlDbConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
